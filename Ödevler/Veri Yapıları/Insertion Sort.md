@@ -2,7 +2,7 @@
 
 ## [22,27,16,2,18,6] -> Insertion Sort
 
-### 1.  Yukarıda verilen dizinin sort türüne göre aşamalarını yazınız.
+### 1.  Yukarıda verilen dizinin insertion sort türüne göre aşamalarını yazınız.
 ` i=1 (dizinin ikinci elemanından) den i=5(dizinin son elemanına) ya kadar her adımda mevcut sayı önceki
 sayılarla karşılaştırıp, önceki bütün elemanlardan en küçük olduğu yere yerleştir. `
 
