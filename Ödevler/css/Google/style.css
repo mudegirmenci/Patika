@@ -1,0 +1,117 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* header  */
+
+header {
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* header end */
+
+/* Main Part/Searchbar Part */
+
+.container {
+    background-color: #EEEEEE;
+    margin: 0px 5%;
+    text-align: center;
+    padding: 3px 0;
+}
+
+/* Main Part/Searchbar Part - end*/
+
+.searchtab {
+    width: 307px;
+    padding: 2px 4px;
+    border-radius: 1px;
+    border: 1px solid #666;
+}
+
+/* table part */
+
+table {
+    display: block;
+    text-align: center;
+    margin: 0px 4.9%;
+}
+
+a:nth-child(3) {
+    color: #0000EE;
+    ;
+}
+
+td:last-child {
+    font-size: 14px;
+    width: 745px;
+    border: 2px solid #62B3AA;
+    font-size: 13px;
+    background-color: #62B3AA;
+}
+
+td:nth-child(2) {
+    width: 336px;
+    font-size: 13px;
+    background-color: #70CCC2;
+}
+
+td:first-child {
+    width: 636px;
+    background-color: #7EE5DA;
+}
+
+td {
+    border-right: 2px solid white;
+    padding: 2px 0px;
+}
+
+.mail-area::placeholder {
+    color: black;
+}
+
+/* table part  - end*/
+
+/* footer  */
+
+footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+}
+
+/* footer  - end */
+
+/* buttons  */
+
+.search-btn,
+.lucky-btn {
+    border-radius: 2px;
+    padding: 2px 7px;
+    border: 1px solid #666;
+}
+
+.sub-btn {
+    margin-right: 10px;
+    padding: 1px 6px;
+}
+
+/* buttons - end  */
+
+/* Hover effects */
+
+.search-btn:hover,
+.lucky-btn:hover {
+    background-color: #E5E5E5;
+}
+
+/* Hover effects - end*/
+
+/* Active Selectors */
+
+.search-btn:active,
+.lucky-btn:active {
+    background-color: #EEEEEE;
+}
+
