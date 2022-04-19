@@ -26,7 +26,7 @@ git push -u origin main
 - [x] Node için hazır .gitignore dosyası bul ve içine ` temp/ ` klasörünü de ekle.
     
 
-### 1- Express Nodemon Kurulumu
+### 2- Express Nodemon Kurulumu
 
 - [x] ` npm i express --save ` ile ` express ` modülünü indiriyoruz.
 - [x] ` Express ` modülünü import et
@@ -88,3 +88,9 @@ Sunucu 3000 portunda başlatıldı
 
   ```
 - [x] `app.js` dosyasında yaptığımız her değişiklikten sonra, dosyamız otomatik olarak yeniden `node app.js` komutu verilmiş gibi olacak.
+
+### 3- Statik Dosyalar - Middleware
+
+- [x] `express` statik files rehberini incele. [Express statik files rehberi](https://expressjs.com/en/starter/static-files.html)
+- [x] `app.use(express.static('public'))` şeklinde kullanım ile statik dosyalarımızın `public` klasörü içerisinde olduğunu belirtiyoruz. `express.static()` bir middleware işlev olarak çalışıyor.
+- [x] `temp/` klasörü projemizin css, html gibi statik dosyalarını oluşturuyordu. Bu dosyanın ismini `public` olarak değiştirip, `.gitignore` dosyasına eklediğimiz `temp/` satırını da silelim.
