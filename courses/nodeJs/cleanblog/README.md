@@ -1,4 +1,6 @@
-### Clean Blog
+## Clean Blog
+
+### 1- Çalışma Ortamı Hazırlama
 - [x] CleanBlog proje klasörü oluşturuldu.
 - [x] `npm init` ile `package.json` dosyası oluşturuldu.
 - [x] `Ctrl + Shift + P` ile Prettier ayarları yapıldı
@@ -24,3 +26,5 @@ app.get('/', (req,res) => {
 
 ```
 - [x] `.gitignore` dosyası oluşturuldu ve repoya gönderildi.
+
+### 2- 
