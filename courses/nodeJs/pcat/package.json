@@ -14,5 +14,8 @@
     "url": "photo app camera"
   },
   "author": "Mustafa Değirmenci",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
