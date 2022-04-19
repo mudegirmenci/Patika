@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import ejs from 'ejs';
 
 const app = new express();
