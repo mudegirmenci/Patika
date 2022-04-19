@@ -94,3 +94,14 @@ Sunucu 3000 portunda başlatıldı
 - [x] `express` statik files rehberini incele. [Express statik files rehberi](https://expressjs.com/en/starter/static-files.html)
 - [x] `app.use(express.static('public'))` şeklinde kullanım ile statik dosyalarımızın `public` klasörü içerisinde olduğunu belirtiyoruz. `express.static()` bir middleware işlev olarak çalışıyor.
 - [x] `temp/` klasörü projemizin css, html gibi statik dosyalarını oluşturuyordu. Bu dosyanın ismini `public` olarak değiştirip, `.gitignore` dosyasına eklediğimiz `temp/` satırını da silelim.
+
+### 4- Template Engine
+
+- [x] `npm i ejs` ile ejs template engine kuruyoruz.
+- [x] Template engine **views** klasörünü kullanacağı için, **temp** klasörümüzü **views** olarak değiştiriyoruz.
+- [x] **views** klasörümüz içindeki bütün html dosyalarının uzantısını ***ejs*** olarak değiştiriyoruz.
+- [x] **views** klasörü içinde, tekrar kodlarımızı koyacağımız **partials** klasörü oluşturuyoruz.
+- [x] Tekrar eden, header, navigation ve footer kodlarımızı partial içinde `_` prefix ile yeni dosyalara alıyoruz.
+- [x] Her sayfa için `app.get()` ile router kodlarımızı yazıyoruz.
+- [x] Cannot Get hatasının çözümü için **_navigation** dosyasındaki linkler değiştirilir. Örneğin **about.html** dosyası **/about** şeklinde düzeltilerek render yapılması sağlanır.
+- [x] **add.ejs**  dosyasında bir takım düzenlemeler yaparak fotoğraf ekleme sayfasına dönüştürüyoruz.
