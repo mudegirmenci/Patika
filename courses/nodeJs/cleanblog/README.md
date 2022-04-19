@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
 })
 
 ```
-- [x] **.gitignore**`** dosyası oluşturuldu ve repoya gönderildi.
+- [x] **.gitignore** dosyası oluşturuldu ve repoya gönderildi.
 
 ### 2- Template Engine
 - [x] **Public** klasörü oluşturup statik dosyalarımızı içerisine yerleştiriyoruz.
