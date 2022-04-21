@@ -4,9 +4,11 @@ const Schema = mongoose.Schema;
 
 //create schema
 //Formdan gelecek verilerin veritabanına kayıt şablonu.
-const PhotoSchema = new Schema({
+const PostSchema = new Schema({
     title: String,
-    description: String,
+    subtitle: String,
+    author: String,
+    post: String,
     image: String,
     dateCreated: {
         type: Date,
@@ -15,7 +17,6 @@ const PhotoSchema = new Schema({
   });
 
   //şablona göre veritabanı oluştur.
-  const Photo = mongoose.model('Photo', PhotoSchema);
+  const Post = mongoose.model('Post', PostSchema);
 
- export  default Photo 
- //module.exports = "Photo" kullanımı hata verir. 
+ export  default Post 

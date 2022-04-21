@@ -46,3 +46,8 @@ app.set('view engine', 'ejs');
 - [x] **Views** klasörü oluşturalım ve tüm ***.html*** dosyalarımız views klasörü içerisinde ***.ejs*** dosyalarına çevirelim.
 - [x] **Partials** klasör yapısını oluşturalım. 
 - [x] İlgili yönlendirmeleri ve **_navigation.ejs** dosyasındaki link düzenlemelerini yapalım.
+
+### 3- Models - Mongoose
+- [x] Mongoose **models** oluşturuldu ve gerekli kodlar yazıldı.
+- [x] Yeni post eklenecek **view** birimi yazıldı.
+- [x] Veritabanına kaydedilen postlar ana sayfada görüntülenecek şekilde düzenlemeler yapıldı.
