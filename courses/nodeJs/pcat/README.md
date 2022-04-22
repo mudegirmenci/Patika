@@ -139,3 +139,26 @@ kullanıyoruz.
 ```
 
 - [x] **app.js** dosyasını form verilerini alıp veritbanına kaydetmek üzere düzenle. Ardından veritabanından çektiğimiz verileri **index.ejs** ye render etmesi için gönder. **index.ejs** yi bu görev için düzenle.
+### 7- Tekil Sayfa İşlemleri
+- [x] Postlara tıkladığımızda açılacak post sayfalarını düzenleyeceğiz.
+- [x] **index.ejs** dosyasında, tekil tıklama yönlendirmesini ***/photos/<%= photos[i]._id %>*** olarak değiştirdik. Bu şekilde veritabanındaki tekil post'un id değerini sunucudan istemiş oluyoruz. Sonraki adımda bu id değerini **app.js** dosyamızda yakalayıp işleyeceğiz.
+- [x] **app.js** dosyasına 
+```
+app.get('/photos/:id', async (req, res) => {
+  const photo = await Photo.findById(req.params.id) 
+  res.render('photo', { photo });
+  
+});
+```
+yönlendirmesini ekledik.
+- [x] **photo.js** dosyasının ilgili alanlarını `<%= photo.title %>` şeklinde gelen responseları karşılayacak şekilde düzenledik.
+- [x] **partials** klasörümüzdeki statik dosyalarımızın yolunu relative olacak şekilde `/` ekleyerek belirledik.
+- [x] işlem yapılan dosyalar:
+```
+	değiştirildi:         courses/nodeJs/pcat/README.md
+	değiştirildi:         courses/nodeJs/pcat/app.js
+	değiştirildi:         courses/nodeJs/pcat/views/index.ejs
+	değiştirildi:         courses/nodeJs/pcat/views/partials/_footer.ejs
+	değiştirildi:         courses/nodeJs/pcat/views/partials/_header.ejs
+	değiştirildi:         courses/nodeJs/pcat/views/photo.ejs
+```

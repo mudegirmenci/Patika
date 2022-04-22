@@ -34,6 +34,16 @@ app.get('/about', (req, res) => {
 app.get('/add', (req, res) => {
   res.render('add');
 });
+
+// Tekil sayfa yönlendirmesi
+app.get('/photos/:id', async (req, res) => {
+  const photo = await Photo.findById(req.params.id) 
+  //çekilen fotoları template engine gönder
+  res.render('photo', { photo });
+  
+});
+
+
 //Post olarak gönderilen form verilerini  yakala ve model yardımıyla veritabanına gönder
 app.post('/photos', async (req, res) => {
  //gelen verileri veritabanına işlemesi için Photo modeline gönder. 
