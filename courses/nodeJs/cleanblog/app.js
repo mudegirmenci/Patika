@@ -39,7 +39,13 @@ app.get('/', async (req, res) => {
     res.render('post');
   });
 
+  // tekil sayfa requestlerini karşıla
 
+  app.get('/posts/:id', async (req, res) => {
+    const post = await Post.findById(req.params.id) 
+    res.render('post', { post });
+    
+  });
   //get data from user POST method
   app.post('/posts', async (req, res) => {
      //gelen verileri veritabanına işlemesi için Post modeline gönder. 
