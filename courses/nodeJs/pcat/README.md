@@ -187,3 +187,21 @@ yönlendirmesini ekledik.
 - [x] Tekil bir fotoğrafa tıklayınca **edit.ejs** dosyasına gidip, orda yer alan form'a `get` methodu ile ilgili fotoğraf bilgileri yüklenir ve `post` ile bu bilgiler veritabanına kaydedilir.
 - [x] **photo.ejs** dosyasındaki ***update details*** butonuna **edit.ejs** dosyasına gitmesini söylüyoruz.
 - [x] Editlediğimiz fotoğraf bilgilerini post olarak gönderirken bunu put request olarak simule etmesi için ***method-override** eklentisini indiriyoruz.
+- [x] Yapılan işlemler:
+```
+	değiştirildi:         courses/nodeJs/pcat/README.md
+	değiştirildi:         courses/nodeJs/pcat/app.js
+	değiştirildi:         courses/nodeJs/pcat/package-lock.json
+	değiştirildi:         courses/nodeJs/pcat/package.json
+	yeni dosya:           courses/nodeJs/pcat/views/edit.ejs
+```
+
+### 9- Görsel Silme
+
+- [x] Görsel silme işlemlerini **photo** sayfamızda yapacağız.
+- [x] Silme işlemini `DELETE` methodu ile gönderdiğimiz için, ***methodOverride*** midlleware kodumuzu, hem `POST` hem `GET` methodlarını yakalayıp dönüştürecek şekilde düzenliyoruz.
+```
+app.use(methodOverride('_method',{
+  methods: ['POST','GET']
+}))
+```
