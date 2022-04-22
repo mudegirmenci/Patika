@@ -184,3 +184,6 @@ yönlendirmesini ekledik.
 
 ```
 ### 8- Görsel Güncelleme
+- [x] Tekil bir fotoğrafa tıklayınca **edit.ejs** dosyasına gidip, orda yer alan form'a `get` methodu ile ilgili fotoğraf bilgileri yüklenir ve `post` ile bu bilgiler veritabanına kaydedilir.
+- [x] **photo.ejs** dosyasındaki ***update details*** butonuna **edit.ejs** dosyasına gitmesini söylüyoruz.
+- [x] Editlediğimiz fotoğraf bilgilerini post olarak gönderirken bunu put request olarak simule etmesi için ***method-override** eklentisini indiriyoruz.

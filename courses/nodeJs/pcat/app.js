@@ -4,6 +4,7 @@ import fileUpload from 'express-fileupload';
 import path from 'path';
 import fs from 'fs';
 import ejs from 'ejs';
+import methodOverride from 'method-override';
 import Photo from './models/Photo.js';
 import { fstat } from 'fs';
 
@@ -23,6 +24,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(fileUpload());
+app.use(methodOverride('_method'))
 
 //ROUTE
 app.get('/', async (req, res) => {
@@ -61,8 +63,8 @@ app.post('/photos', async (req, res) => {
   //üklediğimiz dosyanın path bilgisini string olarak ekle. Bu işlemleri asenkron yap.
   uploadedImage.mv(uploadPath, async () => {
     await Photo.create({
-      ...req.body,                              
-      image: '/uploads/' + uploadedImage.name, 
+      ...req.body,
+      image: '/uploads/' + uploadedImage.name,
     });
     res.redirect('/'); // sonrasında ana sayfaya yönlendir.
   });
@@ -73,6 +75,21 @@ app.post('/photos', async (req, res) => {
   //fotoğraf yükleme işlemi bitince yönlendir.
   //res.redirect('/');
 });
+
+app.get('/photos/edit/:id', async (req, res) => {
+  const photo = await Photo.findOne({ _id: req.params.id });
+  res.render('edit', { photo });
+});
+
+app.put('/photos/:id', async (req, res) => {
+  const photo = await Photo.findOne({ _id: req.params.id });
+  photo.title = req.body.title
+  photo.description = req.body.description
+  photo.save()
+  res.redirect(`/photos/${req.params.id}`)
+});
+
+
 
 const port = 3000;
 
