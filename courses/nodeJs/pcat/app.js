@@ -1,8 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import fileUpload from 'express-fileupload';
+import path from 'path';
+import fs from 'fs';
 import ejs from 'ejs';
-import Photo  from './models/Photo.js';
-
+import Photo from './models/Photo.js';
+import { fstat } from 'fs';
 
 const app = new express();
 
@@ -17,13 +20,14 @@ app.set('view engine', 'ejs');
 
 //MIDDLEWARES
 app.use(express.static('public'));
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(fileUpload());
 
 //ROUTE
 app.get('/', async (req, res) => {
   //veritabanından fotoğrafları çek
-  const photos = await Photo.find( {}) 
+  const photos = await Photo.find({}).sort('-dateCreated');
   //çekilen fotoları template engine gönder
   res.render('index', { photos });
 });
@@ -37,20 +41,37 @@ app.get('/add', (req, res) => {
 
 // Tekil sayfa yönlendirmesi
 app.get('/photos/:id', async (req, res) => {
-  const photo = await Photo.findById(req.params.id) 
+  const photo = await Photo.findById(req.params.id);
   //çekilen fotoları template engine gönder
   res.render('photo', { photo });
-  
 });
-
 
 //Post olarak gönderilen form verilerini  yakala ve model yardımıyla veritabanına gönder
 app.post('/photos', async (req, res) => {
- //gelen verileri veritabanına işlemesi için Photo modeline gönder. 
- //await ile fotoğraf veritabanına işlenene kadar bekle
-  await Photo.create(req.body)
+  const uploadDir = 'public/uploads';
+
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+  }
+  const __dirname = path.resolve();
+  let uploadedImage = req.files.image; //yüklenecek fotoğraf
+  let uploadPath = __dirname + '/public/uploads/' + uploadedImage.name; //fotoğrafların yükleneceği klasör yolu ve fotoğraf ismi
+
+  //yüklenen fotoğrafı uploadPath dizinine taşı ve veritabanına diğer form bilgileri ile birlikte
+  //üklediğimiz dosyanın path bilgisini string olarak ekle. Bu işlemleri asenkron yap.
+  uploadedImage.mv(uploadPath, async () => {
+    await Photo.create({
+      ...req.body,                              
+      image: '/uploads/' + uploadedImage.name, 
+    });
+    res.redirect('/'); // sonrasında ana sayfaya yönlendir.
+  });
+
+  //gelen verileri veritabanına işlemesi için Photo modeline gönder.
+  //await ile fotoğraf veritabanına işlenene kadar bekle
+  //await Photo.create(req.body);
   //fotoğraf yükleme işlemi bitince yönlendir.
- res.redirect('/')
+  //res.redirect('/');
 });
 
 const port = 3000;

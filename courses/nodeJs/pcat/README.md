@@ -162,3 +162,25 @@ yönlendirmesini ekledik.
 	değiştirildi:         courses/nodeJs/pcat/views/partials/_header.ejs
 	değiştirildi:         courses/nodeJs/pcat/views/photo.ejs
 ```
+### 8- Görsel Yükleme
+- [x] **express-fileupload** eklentisi kullanarak fotoğrafları yükleyeceğiz. 
+- [x] `npm i express-fileupload` ile eklentiyi yüklüyoruz.
+- [x] Bu eklenti formlarda `type` ve `name` alanlarının olmasını şart koşar.
+- [x] Eklentimiz bir middleware eklenti olduğu için **app.js** içerisinde `app.use(fileUpload())` kodu ile kaydetmeliyiz. 
+- [x] `app.post()` router alanında dosya yükleme ile ilgili kodları oluşturuyoruz.
+- [x] Fotoğraf yükleyebilmemiz için **add.ejs** ilgili form alanına `enctype="multipart/form-data` ifadesini ekliyoruz.
+- [x] Eğer `app.post()`bölümünde ` console.log(req.files.image)` kodunu yazarsak, fotoğrafla ilgili bilgileri console ekranında görebiliriz.
+- [x] **index.ejs** fotoğraf yol link düzenlendi.
+- [x] **photo.ejs** dosyasındaki veritabanından tekil fotoğraf almak için `<%= photo.image %>` kodu eklendi.
+- [x] İşlem yapılan dosyalar.
+```
+	değiştirildi:         courses/nodeJs/pcat/README.md
+	değiştirildi:         courses/nodeJs/pcat/app.js
+	değiştirildi:         courses/nodeJs/pcat/package-lock.json
+	değiştirildi:         courses/nodeJs/pcat/package.json
+	değiştirildi:         courses/nodeJs/pcat/views/add.ejs
+	değiştirildi:         courses/nodeJs/pcat/views/index.ejs
+	değiştirildi:         courses/nodeJs/pcat/views/photo.ejs
+
+```
+### 8- Görsel Güncelleme
