@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Add New Post</h1>
+            <h1>Edit The Post</h1>
 
           </div>
         </div>
@@ -26,32 +26,34 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="POST" action="/posts" >
+        <form method="POST" action="/posts/<%= post._id %>?_method=PUT"  enctype="multipart/json" >
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Title</label>
-              <input type="text" class="form-control" name="title" placeholder="Post Title" id="name" required data-validation-required-message="Please enter post title.">
+              <input type="text" class="form-control" value ="<%= post.title %>" name="title" id="title" placeholder="Post Title" required required-message="Please enter post title.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Sub-Title</label>
-              <input type="text" class="form-control" name="subtitle" placeholder="Post Sub-Title" id="name" required data-validation-required-message="Please enter subtitle.">
+              <input type="text" class="form-control" value ="<%= post.subtitle %>" name="subtitle" id="subtitle" placeholder="Post Sub-Title"  required data-validation-required-message="Please enter subtitle.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Author</label>
-              <input type="text" class="form-control" name="author" placeholder="Post Author" id="name" required data-validation-required-message="Please enter author name.">
+              <input type="text" class="form-control" value ="<%= post.author %>" name="author" id="author" placeholder="Post Author"  required data-validation-required-message="Please enter author name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Detail</label>
-              <textarea rows="5" class="form-control" name="post" placeholder="Post Detail" id="message" required data-validation-required-message="Please enter a post detail."></textarea>
+              <textarea rows="5" class="form-control"  name="post" id="post" placeholder="Post Detail" required data-validation-required-message="Please enter a post detail.">
+                <%= post.post %>"
+              </textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>

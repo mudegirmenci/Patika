@@ -77,3 +77,9 @@ ve veritabanında o id ile eşleşen kaydı bul. Bulduğun kaydı view ile işle
 	değiştirildi:         courses/nodeJs/cleanblog/views/partials/_header.ejs
 
 ```
+
+### 5- MVC yapısına dönüştür
+- [x] post.ejs template içerisinde UPDATE ve DELETE butonu oluşturalım.
+- [x] Herhangi bir post verisini güncellemek için gerekli çalışmaları yapalım.
+- [x] Herhangi bir post verisini silmek için gerekli çalışmaları yapalım.
+- [x] Kodumuzu MVC yapısına göre tekrar düzenleyelim.

@@ -1,7 +1,11 @@
 import express from "express";
 import mongoose from 'mongoose';
+import path from 'path';
 import ejs from 'ejs';
+import methodOverride from 'method-override';
 import Post from "./models/Post.js";
+import * as pageController from './controllers/pageControllers.js'
+import * as postController from './controllers/postControllers.js'
 
 const app = new express();
 
@@ -18,43 +22,27 @@ app.set('view engine', 'ejs');
 
 //MIDDLEWARES
 app.use(express.static('public'));
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(
+  methodOverride('_method', {
+    methods: ['POST', 'GET'],
+  })
+);
 
 //ROUTE
-app.get('/', async (req, res) => {
-    const posts = await Post.find( {})
-    res.render('index', { posts });
-  });
-  app.get('/about', (req, res) => {
-    res.render('about');
-  });
-  app.get('/add_post', (req, res) => {
-    res.render('add_post');
-  });
+//Page Controllers
+app.get('/',pageController.getRootPage );
+app.get('/about', pageController.getAboutPage);
+app.get('/add_post', pageController.getAddPage);
+app.get('/post', pageController.getPostPage);  // ana sayfada posta tıklandığında single post gösterecek post.ejs sayfasını çağırır.
+app.get('/posts/edit/:id', pageController.getEditPage)
 
-  // ana sayfada posta tıklandığında single post gösterecek post.ejs sayfasını çağırır.
-  app.get('/post', async (req, res) => {
-  //  const post = await Post.find( {}) veritabanından single post çek
-    res.render('post');
-  });
-
-  // tekil sayfa requestlerini karşıla
-
-  app.get('/posts/:id', async (req, res) => {
-    const post = await Post.findById(req.params.id) 
-    res.render('post', { post });
-    
-  });
-  //get data from user POST method
-  app.post('/posts', async (req, res) => {
-     //gelen verileri veritabanına işlemesi için Post modeline gönder. 
-     //await ile veiler veritabanına işlenene kadar bekle
-     await Post.create(req.body)
-     //veri yükleme işlemi bitince yönlendir.
-     res.redirect('/')
-  });
-
+//Post Controllers
+app.get('/posts/:id', postController.getPost ); // tekil sayfa requestlerini karşıla
+app.post('/posts', postController.createPost);  //get data from user POST method
+app.put('/posts/:id', postController.updatePost);
+app.delete('/posts/:id', postController.deletePost);
 
 const port =5000;
 
