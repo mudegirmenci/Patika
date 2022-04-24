@@ -9,10 +9,23 @@ export const getPhoto = async (req, res) => {
 };
 
 export const getPhotos = async (req, res) => {
+
+  const page = req.query.page || 1
+  const photosPerPage = 1
+  const totolEntries = await Photo.find().estimatedDocumentCount()
+  const photos = await Photo.find({})
+  .sort('-dateCreated')
+  .skip( (page-1) * photosPerPage)
+  .limit(photosPerPage);
+  res.render('index', { 
+    photos: photos,
+    current: page,
+    pages: Math.ceil(totolEntries /photosPerPage)
+   });
   //veritabanından fotoğrafları çek
-  const photos = await Photo.find({}).sort('-dateCreated');
+ // const photos = await Photo.find({}).sort('-dateCreated');
   //çekilen fotoları template engine gönder
-  res.render('index', { photos });
+ // res.render('index', { photos });
 };
 
 export const updatePhoto = async (req, res) => {

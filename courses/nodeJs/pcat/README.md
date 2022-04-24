@@ -227,3 +227,10 @@ import { Photo } from './models/Photo.js'
 	courses/nodeJs/pcat/public/uploads/contact-bg.jpg
 	courses/nodeJs/pcat/public/uploads/post-bg.jpg
 ```
+
+### 9- Pagination
+- [x]
+- [x]
+- [x]
+- [x]
+- [x]
