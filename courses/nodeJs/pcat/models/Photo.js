@@ -15,7 +15,6 @@ const PhotoSchema = new Schema({
   });
 
   //şablona göre veritabanı oluştur.
-  const Photo = mongoose.model('Photo', PhotoSchema);
+   export const Photo = mongoose.model('Photo', PhotoSchema);
 
- export  default Photo 
- //module.exports = "Photo" kullanımı hata verir. 
+

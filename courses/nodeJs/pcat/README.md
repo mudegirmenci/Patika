@@ -205,3 +205,25 @@ app.use(methodOverride('_method',{
   methods: ['POST','GET']
 }))
 ```
+
+### 9- Refactoring - MVC yapısını uygulamak
+
+- [x] Root dizinde **controllers** klasörü oluşturup içine gerekli controller dosyalarımızı oluşturuyoruz.
+- [x] Controller dostamıza **Photo.js** import ediyoruz fakat bunu yaparken süslü parantez kullanmalıyız. Aksi halde typeerror alıyoruz.
+```
+import { Photo } from './models/Photo.js'
+```
+- [x] İşlenen dosyalar:
+```
+(çalışma dizinindeki değişiklikleri atmak için "git restore <dosya>..." kullanın)
+	değiştirildi:         courses/nodeJs/pcat/README.md
+	değiştirildi:         courses/nodeJs/pcat/app.js
+	değiştirildi:         courses/nodeJs/pcat/models/Photo.js
+	silindi:              courses/nodeJs/pcat/public/uploads/post-sample-image.jpg
+
+İzlenmeyen dosyalar:
+  (işlenecekler arasına koymak için "git add <dosya>..." kullanın)
+	courses/nodeJs/pcat/controllers/
+	courses/nodeJs/pcat/public/uploads/contact-bg.jpg
+	courses/nodeJs/pcat/public/uploads/post-bg.jpg
+```
