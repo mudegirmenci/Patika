@@ -11,7 +11,7 @@ export const getPhoto = async (req, res) => {
 export const getPhotos = async (req, res) => {
 
   const page = req.query.page || 1
-  const photosPerPage = 1
+  const photosPerPage = 5
   const totolEntries = await Photo.find().estimatedDocumentCount()
   const photos = await Photo.find({})
   .sort('-dateCreated')
