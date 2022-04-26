@@ -229,8 +229,26 @@ import { Photo } from './models/Photo.js'
 ```
 
 ### 9- Pagination
-- [x]
-- [x]
-- [x]
-- [x]
-- [x]
+- [x] **app.js** ve **index.ejs** dosyalarında gerekli değişiklikler yapıldı
+### 10- MongoDB atlas ve Heroko
+- [x] Cloud veritabanı için ***mongodb atlas** ve dosyarımızı host etmek için **heroku** kullancağız.
+- [x] ***mongodb atlas** sitesinden hesap oluşturup bir veritabanı seçiyoruz ve **app.js** dosyamızda uzak veritabanı bağlantısını kuruyoruz
+- [x] Heroku için **app.js** dosyamızda 
+`const port = process.env.PORT || 5000` güncelemesini,
+ **package.json** dosyamızda da
+```
+ "scripts": { 
+     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+ },
+ ```
+satırlarını
+```
+ "scripts": {
+    "start": "node app.js"
+  },
+```
+şeklinde düzenliyoruz.
+- [x] **public** klasörümüzü temizliyoruz.
+- [x] Artık projemiz boş olarak **heroku** ortamına yüklenmeye hazır.
+- [x] Bu haliyle git repomuzu güncelleyelim.
