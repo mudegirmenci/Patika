@@ -10,7 +10,7 @@ import * as postController from './controllers/postControllers.js'
 const app = new express();
 
 //connect  DB
-mongoose.connect('mongodb://localhost/cleanblog', {
+mongoose.connect('mongodb+srv://mudegirmenci:SFEH17Saz5sesKxv@cluster0.pvhra.mongodb.net/cleanblog-db?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -44,7 +44,8 @@ app.post('/posts', postController.createPost);  //get data from user POST method
 app.put('/posts/:id', postController.updatePost);
 app.delete('/posts/:id', postController.deletePost);
 
-const port =5000;
+const port = process.env.PORT || 5000
+
 
 app.listen(port, () => {
     console.log(`Sunucu ${port} portunda başlatıldı`)
