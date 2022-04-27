@@ -26,3 +26,10 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 - [x] **public** ve **views** klasör içeriklerini ayarlayalım.
 - [x] **partials** klasörümüzün içeriğini oluşturalım.
 - [x] **views** klasöründeki dönüştürme işlemlerini ve **app.js** router işlemlerini yaptık.
+
+### 3- Routing
+- [x] **routes** klasörünü oluşturup **pageRoute** dosyasını yazalım.
+- [x] Burada express routing işlemlerini kullanıyoruz: https://expressjs.com/en/guide/routing.html
+
+### 4- Model
+- [x] **mongoose** indir yapılandır.

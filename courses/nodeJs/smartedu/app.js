@@ -1,55 +1,26 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import pageRouter from './routes/pageRoute.js';
+import courseRouter from './routes/courseRoute.js';
 
 const app = express();
 
-//Template Engine
-app.set('view engine', 'ejs')
-
-//Middlewares
-app.use(express.static('public'))  //statik dosyalarımız nerede?
-
-//ROUTER
-app.get('/', (req, res) => {
-  res.status(200).render('index', {
-      page_name: 'index'
-  });
+//Connect DB
+mongoose.connect('mongodb://localhost/smartedu-db',).then( () => {
+  console.log("Db connect success")
 });
 
-app.get('/about', (req, res) => {
-    res.status(200).render('about', {
-        page_name: 'about'
-    });
-  });
+//Template Engine
+app.set('view engine', 'ejs');
 
-app.get('/contact', (req, res) => {
-    res.status(200).render('contact', {
-        page_name: 'contact'
-    });
-  });
-app.get('/course-single', (req, res) => {
-    res.status(200).render('course-single');
-  });
-app.get('/courses', (req, res) => {
-    res.status(200).render('courses', {
-        page_name: 'courses'
-    });
-  });
-app.get('/dashboard', (req, res) => {
-    res.status(200).render('dashboard', {
-        page_name: 'dashboard'
-    });
-  });
-app.get('/login', (req, res) => {
-    res.status(200).render('login');
-  });
-app.get('/register', (req, res) => {
-    res.status(200).render('register');
-  });
-  
-  
-  
-  
-  
+//Middlewares
+app.use(express.static('public')); //statik dosyalarımız nerede?
+
+//ROUTE
+app.use('/', pageRouter);
+app.use('/courses', courseRouter);
+
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`App started on port ${port}`);
