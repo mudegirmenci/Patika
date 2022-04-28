@@ -33,3 +33,5 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 
 ### 4- Model
 - [x] **mongoose** indir yapılandır.
+### 5- Kursları Listeleme yapıldı
+### 6- Tekil Kurs Sayfası ve Slugify

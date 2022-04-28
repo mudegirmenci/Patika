@@ -39,3 +39,24 @@ export const getCourses = async (req, res) => {
     });
   }
 };
+
+
+//get course
+export const getCourse = async (req, res) => {
+ 
+  try {
+
+    const course = await Course.findOne({slug:req.params.slug})
+
+    res.status(200).render('course',{
+      course,
+      page_name : 'courses'
+
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: 'failed',
+      error,
+    });
+  }
+};
