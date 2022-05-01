@@ -45,4 +45,21 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 ### 12- Session Logout
 - [x] Sunucu restart edildiğinde oturumu kaybetmemek için **connect-mongo** paketi ile oturum bilgilerini veritabanında saklıyoruz.
 ### 13- Kişiye Özel İçerik
+### 14- Özel Middleware
+
+- [x] Duplicate query hatasını şu şekilde düzelttim:
+```
+
+export default async (req, res, next) => {
+   await User.findById(req.session.UserID, (err, user) => {
+   if (!err || user) {
+       next()
+   } else {
+       throw err
+   }
+  
+ }).clone().catch(function(err){ console.log(err)});
+};
+
+ ```
 
