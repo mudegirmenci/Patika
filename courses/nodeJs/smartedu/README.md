@@ -41,4 +41,7 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 - [x] **autController** dosyasında ` const user =await  User.findOne({ email })` yapısını kullandık. Yoksa HEADER hatası veriyor.
 ### 10- Session
 - [x] `npm i express-session`
+### 11- Session Login
+### 12- Session Logout
+- [x] Sunucu restart edildiğinde oturumu kaybetmemek için **connect-mongo** paketi ile oturum bilgilerini veritabanında saklıyoruz.
 

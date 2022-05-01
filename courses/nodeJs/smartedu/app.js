@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
+import MongoStore from 'connect-mongo'
 import pageRouter from './routes/pageRoute.js';
 import courseRouter from './routes/courseRoute.js';
 import categoryRouter from './routes/categoryRoute.js';
@@ -29,6 +30,7 @@ app.use(
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create( { mongoUrl: 'mongodb://127.0.0.1/smartedu-db'})
   })
 );
 //ROUTE
