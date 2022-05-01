@@ -35,3 +35,6 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 - [x] **mongoose** indir yapılandır.
 ### 5- Kursları Listeleme yapıldı
 ### 6- Tekil Kurs Sayfası ve Slugify
+### 7- Kategoriler 
+### 8- Register sayfası ve bcrypt
+

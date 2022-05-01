@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import pageRouter from './routes/pageRoute.js';
 import courseRouter from './routes/courseRoute.js';
 import categoryRouter from './routes/categoryRoute.js';
+import userRouter from './routes/userRoute.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use('/', pageRouter);
 app.use('/courses', courseRouter);
 app.use('/categories', categoryRouter);
+app.use('/users', userRouter);
 
 const port = 3000;
 app.listen(port, () => {
