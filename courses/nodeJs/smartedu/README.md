@@ -39,3 +39,6 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 ### 8- Register sayfası ve bcrypt
 ### 9- Login Sayfası
 - [x] **autController** dosyasında ` const user =await  User.findOne({ email })` yapısını kullandık. Yoksa HEADER hatası veriyor.
+### 10- Session
+- [x] `npm i express-session`
+

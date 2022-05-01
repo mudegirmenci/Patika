@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import User from '../models/Users.js';
+import session from 'express-session';
 
 export const createUser = async (req, res) => {
   try {
@@ -24,11 +25,12 @@ export const loginUser = async (req, res) => {
     const user =await  User.findOne({ email })
       //bu email sahibi kullanıcı varmı?
       if(user) {
+        req.session.userID =user._id
         bcrypt.compare(password, user.password, (err, same) => {
           //varsa şifresi doğru mu?
           if (same) {
-            //USER SESSION
-          return  res.status(200).json('YOU ARE LOG IN'); //şifre doğruysa giriş yaptı
+           
+            res.status(200).redirect('/')
             
           }
         });
