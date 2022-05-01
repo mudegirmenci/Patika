@@ -31,9 +31,8 @@ export const getDashBoardPage = (req, res) => {
 };
 
 export const getLoginPage = (req, res) => {
-  res.status(200).render('login',{
-    page_name : 'register'
-
+    res.status(200).render('login', {
+    page_name: 'login',
   });
 };
 
@@ -42,3 +41,5 @@ export const getRegisterPage = (req, res) => {
     page_name: 'register',
   });
 };
+
+

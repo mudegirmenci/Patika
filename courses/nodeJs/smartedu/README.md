@@ -37,4 +37,5 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 ### 6- Tekil Kurs Sayfası ve Slugify
 ### 7- Kategoriler 
 ### 8- Register sayfası ve bcrypt
-
+### 9- Login Sayfası
+- [x] **autController** dosyasında ` const user =await  User.findOne({ email })` yapısını kullandık. Yoksa HEADER hatası veriyor.
