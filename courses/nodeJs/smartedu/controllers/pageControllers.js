@@ -1,7 +1,5 @@
-
-
 export const getIndexPage = (req, res) => {
-  console.log(req.session.userID)
+  console.log(req.session.userID);
   res.status(200).render('index', {
     page_name: 'index',
   });
@@ -27,14 +25,8 @@ export const getCoursesPage = (req, res) => {
   });
 };
 
-export const getDashBoardPage = (req, res) => {
-  res.status(200).render('dashboard', {
-    page_name: 'dashboard',
-  });
-};
-
 export const getLoginPage = (req, res) => {
-    res.status(200).render('login', {
+  res.status(200).render('login', {
     page_name: 'login',
   });
 };
@@ -44,5 +36,3 @@ export const getRegisterPage = (req, res) => {
     page_name: 'register',
   });
 };
-
-

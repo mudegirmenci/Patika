@@ -8,7 +8,7 @@ router.route('/about').get(pageController.getAboutPage)
 router.route('/contact').get(pageController.getContactPage)
 router.route('/course-single').get(pageController.getCourseSinglePage)
 //router.route('/courses').get(pageController.getCoursesPage)
-router.route('/dashboard').get(pageController.getDashBoardPage)
+//router.route('/dashboard').get(pageController.getDashBoardPage)
 router.route('/login').get(pageController.getLoginPage)
 router.route('/register').get(pageController.getRegisterPage)
 

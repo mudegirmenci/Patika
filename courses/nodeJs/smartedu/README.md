@@ -44,4 +44,5 @@ Bu bölümde Smartedu projemizi yapmaya başlayacağız. Bu projemizde Smartedu 
 ### 11- Session Login
 ### 12- Session Logout
 - [x] Sunucu restart edildiğinde oturumu kaybetmemek için **connect-mongo** paketi ile oturum bilgilerini veritabanında saklıyoruz.
+### 13- Kişiye Özel İçerik
 

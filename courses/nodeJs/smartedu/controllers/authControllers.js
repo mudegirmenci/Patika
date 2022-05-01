@@ -30,7 +30,7 @@ export const loginUser = async (req, res) => {
           //varsa şifresi doğru mu?
           if (same) {
            
-            res.status(200).redirect('/')
+            res.status(200).redirect('/users/dashboard')
             
           }
         });
@@ -49,3 +49,11 @@ export const logoutUser =  (req, res) => {
       res.redirect('/')
     })
 }
+
+export const getDashBoardPage = async (req, res) => {
+  const user = await User.findOne(  {_id:req.session.userID})
+  res.status(200).render('dashboard', {
+    page_name: 'dashboard',
+    user
+  });
+};
