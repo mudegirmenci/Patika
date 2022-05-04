@@ -70,6 +70,8 @@ export default async (req, res, next) => {
 - [x] Öğrenci tekil bir kurs enroll veya release işlemleri yapabilsin.
  ### 19 - Search Alanı
  ### 20 - Bildirim Mesajları
+ ### 21 - Kayıt ve Kullanıcı Doğrulama
+- [x] `npm i express-validator` indir
 
 
 

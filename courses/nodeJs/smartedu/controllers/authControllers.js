@@ -1,4 +1,6 @@
 import bcrypt from 'bcrypt';
+import {validationResult } from 'express-validator';
+
 import User from '../models/Users.js';
 import Category from '../models/Category.js'
 import session from 'express-session';
@@ -8,12 +10,17 @@ export const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
 
-    res.status(200).c
+    res.status(201).redirect('/login')
+
   } catch (error) {
-    res.status(404).json({
-      status: 'failed',
-      error,
-    });
+    const errors = validationResult(req)
+    console.log(errors)
+
+    for(let i=0;i<errors.array().length;i++) {
+      req.flash("error",`${errors.array()[i].msg}`) 
+    }
+    res.status(400).redirect('/register')
+
   }
 };
 
@@ -27,11 +34,21 @@ export const loginUser = async (req, res) => {
         req.session.userID =user._id
         bcrypt.compare(password, user.password, (err, same) => {
           //varsa şifresi doğru mu?
-            
-            req.session.userID = user._id
-            res.status(200).redirect('/users/dashboard')
+            if(same) {
+              req.session.userID = user._id
+              res.status(200).redirect('/users/dashboard')
+            } else {
+              req.flash("error",`Your password is incorrect`) 
+              res.status(400).redirect('/login')
+
+            }
+           
                      
         });
+      } else {
+        req.flash("error",`User is not exist`) 
+        res.status(400).redirect('/login')
+
       }
     
   } catch (error) {
