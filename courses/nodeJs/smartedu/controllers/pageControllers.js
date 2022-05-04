@@ -60,8 +60,8 @@ export const sendEmail = async (req, res) => {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: "mudegirmenci", // generated ethereal user
-          pass: "uoauufcbuugkoeej", // generated ethereal password
+          user: "", // generated ethereal user
+          pass: "", // generated ethereal password
         },
       });
     
