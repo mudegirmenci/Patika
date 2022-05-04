@@ -2,7 +2,6 @@ import express from 'express';
 import * as pageController from '../controllers/pageControllers.js'
 import redirectMiddleware from '../middlewares/redirectMiddleware.js';
 
-
 const router = express.Router()
 
 router.route('/').get(pageController.getIndexPage)
@@ -13,5 +12,7 @@ router.route('/course-single').get(pageController.getCourseSinglePage)
 //router.route('/dashboard').get(pageController.getDashBoardPage)
 router.route('/login').get(redirectMiddleware,pageController.getLoginPage)
 router.route('/register').get(redirectMiddleware,pageController.getRegisterPage)
+router.route('/contact').post(pageController.sendEmail)
+
 
 export default router

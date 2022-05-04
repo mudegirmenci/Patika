@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
-import MongoStore from 'connect-mongo'
+import MongoStore from 'connect-mongo';
+import flash from 'connect-flash';
 import pageRouter from './routes/pageRoute.js';
 import courseRouter from './routes/courseRoute.js';
 import categoryRouter from './routes/categoryRoute.js';
@@ -30,9 +31,15 @@ app.use(
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create( { mongoUrl: 'mongodb://127.0.0.1/smartedu-db'})
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1/smartedu-db' }),
   })
 );
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
+
 //ROUTE
 app.use('*', (req, res, next) => {
   userIN = req.session.userID;
