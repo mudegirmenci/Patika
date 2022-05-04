@@ -64,5 +64,11 @@ export default async (req, res, next) => {
  ```
 
  ### 15- Kullanıcı Rolleri
+ ### 16- Kurs Oluşturmak
+ ### 17- Kurs - Öğretmen İlişkisi
+ ### 18- Kurs - Öğrenci İlişkisi
+- [x] Öğrenci tekil bir kurs enroll veya release işlemleri yapabilsin.
+ ### 19 - Search Alanı
+
 
 
