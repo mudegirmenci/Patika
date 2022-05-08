@@ -1,4 +1,4 @@
-## PATİKA DEV SQL ÖDEV 1
+## PATİKA DEV SQL ÖDEV 2
 ### Aşağıdaki sorgu senaryolarını dvdrental örnek veri tabanı üzerinden gerçekleştiriniz.
 
 - [x] film tablosunda bulunan tüm sütunlardaki verileri replacement cost değeri 12.99 dan büyük eşit ve 16.99 küçük olma koşuluyla sıralayınız ( BETWEEN - AND yapısını kullanınız.)
