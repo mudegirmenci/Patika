@@ -1,3 +1,4 @@
+## PATİKA DEV SQL ÖDEV 1
 ### Aşağıdaki sorgu senaryolarını dvdrental örnek veri tabanı üzerinden gerçekleştiriniz.
 
 - [x] film tablosunda bulunan title ve description sütunlarındaki verileri sıralayınız.
